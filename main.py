@@ -1,15 +1,12 @@
 import model
-import dataLoader
+import dataloaders.__init__ as dataloader
 import comparison
 
-test = dataLoader.test
+test = dataloader.test
 predictions = model.predictions
 save_predictions = model.save_predictions
-comparison.evaluate_test_results(test[1], predictions)
+comparison.evaluate_test_results(
+    test[1], predictions, "textFiles/output.txt", "Result with casia dataset with right eye"
+)
 
-# Define output folder for predictions
-if dataLoader.leftOrRight == 'L':
-    output_folder = '/content/drive/MyDrive/Fusion/L'
-else:
-    output_folder = '/content/drive/MyDrive/Fusion/R'  # Replace with your desired output folder path
-save_predictions(predictions, output_folder)
+save_predictions(predictions, dataloader.output_folder)

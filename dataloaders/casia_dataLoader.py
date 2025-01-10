@@ -1,16 +1,15 @@
 import os
 from tensorflow.keras.preprocessing.image import img_to_array, load_img  # type: ignore
-import matplotlib.pyplot as plt
 import numpy as np
 
 
 def load_from_folder(
-    quantity, leftOrRight, imgFolder, maskFolder, img_size=(64, 64), grayscale=True
+    start, end, leftOrRight, imgFolder, maskFolder, img_size=(64, 64), grayscale=True
 ):
     images = []
     masks = []
     image_name = []
-    for i in range(1, quantity + 1):
+    for i in range(start, end + 1):
         print(i)
         folder = f"{i:03d}"
         folder = os.path.join(imgFolder, folder, leftOrRight)
@@ -51,8 +50,14 @@ def load_from_folder(
 
 baseFolder = "/content/drive/MyDrive/CASIA-Iris-Interval"
 maskFolder = "/content/drive/MyDrive/casia4i"
+leftOrRight = "R"
 
-leftOrRight = "L"
-train = load_from_folder(250, leftOrRight, baseFolder, maskFolder, (64, 64), True)
-test = load_from_folder(50, leftOrRight, baseFolder, maskFolder, (64, 64), True)
-val = load_from_folder(50, leftOrRight, baseFolder, maskFolder, (64, 64), True)
+# Define output folder for predictions
+if leftOrRight == "L":
+    output_folder = "/content/drive/MyDrive/NASUnet-Iris/Iris-Outputs/Casia/L"
+else:
+    output_folder = "/content/drive/MyDrive/NASUnet-Iris/Iris-Outputs/Casia/R"  # Replace with your desired output folder path
+
+train = load_from_folder(1, 200, leftOrRight, baseFolder, maskFolder, (64, 64), True)
+test = load_from_folder(200, 250, leftOrRight, baseFolder, maskFolder, (64, 64), True)
+val = load_from_folder(150, 200, leftOrRight, baseFolder, maskFolder, (64, 64), True)

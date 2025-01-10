@@ -1,0 +1,92 @@
+=== Evaluation Results ===
+Date and Time (IST): 2025-01-10 14:33:11
+Reason for Execution: Result with ubiris dataset 
+Mean Confusion Matrix:
+[[3764.85140562   29.36144578]
+ [   4.95180723  296.83534137]]
+Precision (mean): 0.9022
+Precision (top 10 mean): 0.9742
+Recall (mean): 0.9807
+Recall (top 10 mean): 1.0000
+Accuracy (mean): 0.9916
+Accuracy (top 10 mean): 0.9976
+F1 Score (mean): 0.9380
+F1 Score (top 10 mean): 0.9791
+IoU Score (mean): 0.8860
+IoU Score (top 10 mean): 0.9590
+Mean Average Precision (mAP) (mean): 0.8858
+Mean Average Precision (mAP) (top 10 mean): 0.9599
+Dice Loss (mean): 0.9380
+Dice Loss (top 10 mean): 0.9791
+
+
+
+
+=== Evaluation Results ===
+Date and Time (IST): 2025-01-10 15:43:06
+Reason for Execution: Result with casia dataset with left eye
+Mean Confusion Matrix:
+[[2892.55932203   25.5480226 ]
+ [  30.6440678  1147.24858757]]
+Precision (mean): 0.9784
+Precision (top 10 mean): 0.9976
+Recall (mean): 0.9738
+Recall (top 10 mean): 0.9963
+Accuracy (mean): 0.9863
+Accuracy (top 10 mean): 0.9935
+F1 Score (mean): 0.9759
+F1 Score (top 10 mean): 0.9888
+IoU Score (mean): 0.9531
+IoU Score (top 10 mean): 0.9779
+Mean Average Precision (mAP) (mean): 0.9601
+Mean Average Precision (mAP) (top 10 mean): 0.9816
+Dice Loss (mean): 0.9759
+Dice Loss (top 10 mean): 0.9888
+
+
+
+
+=== Evaluation Results ===
+Date and Time (IST): 2025-01-10 16:32:01
+Reason for Execution: Result with casia dataset with right eye
+Mean Confusion Matrix:
+[[2911.3423913    23.63586957]
+ [  28.29891304 1132.72282609]]
+Precision (mean): 0.9791
+Precision (top 10 mean): 0.9955
+Recall (mean): 0.9750
+Recall (top 10 mean): 0.9959
+Accuracy (mean): 0.9873
+Accuracy (top 10 mean): 0.9936
+F1 Score (mean): 0.9769
+F1 Score (top 10 mean): 0.9899
+IoU Score (mean): 0.9550
+IoU Score (top 10 mean): 0.9801
+Mean Average Precision (mAP) (mean): 0.9615
+Mean Average Precision (mAP) (top 10 mean): 0.9830
+Dice Loss (mean): 0.9769
+Dice Loss (top 10 mean): 0.9899
+
+
+
+
+=== Evaluation Results ===
+Date and Time (IST): 2025-01-10 17:34:10
+Reason for Execution: Result with iitd dataset
+Mean Confusion Matrix:
+[[2782.82008368   47.9916318 ]
+ [  37.46861925 1227.71966527]]
+Precision (mean): 0.9615
+Precision (top 10 mean): 0.9943
+Recall (mean): 0.9704
+Recall (top 10 mean): 0.9974
+Accuracy (mean): 0.9791
+Accuracy (top 10 mean): 0.9916
+F1 Score (mean): 0.9655
+F1 Score (top 10 mean): 0.9861
+IoU Score (mean): 0.9338
+IoU Score (top 10 mean): 0.9726
+Mean Average Precision (mAP) (mean): 0.9421
+Mean Average Precision (mAP) (top 10 mean): 0.9763
+Dice Loss (mean): 0.9655
+Dice Loss (top 10 mean): 0.9861
