@@ -18,7 +18,7 @@ def load_from_folder(imgFolder, maskFolder, img_size=(64, 64), grayscale=True):
             for img_name in sorted(os.listdir(folder)):
                 if img_name != "Thumbs.db":  # Exclude Thumbs.db
                     img_path = os.path.join(folder, img_name)
-                    image_names.append(os.path.splitext(img_name)[0])
+                    image_names.append(str(i) + "_" + os.path.splitext(img_name)[0])
                     print(img_path)
                     img = load_img(
                         img_path,
@@ -51,9 +51,9 @@ def load_from_folder(imgFolder, maskFolder, img_size=(64, 64), grayscale=True):
     images = np.array(images)
     masks = np.array(masks)
 
-    train = images[0:2001], masks[0:2001], mask_names[0:2001]
-    test = images[2001:2241], masks[2001:2241], mask_names[2001:2241]
-    val = images[1000:1500], masks[1000:1500], mask_names[1000:1500]
+    train = images[0:2001], masks[0:2001], image_names[0:2001]
+    test = images[2001:2241], masks[2001:2241], image_names[2001:2241]
+    val = images[1000:1500], masks[1000:1500], image_names[1000:1500]
 
     return train, test, val
 
