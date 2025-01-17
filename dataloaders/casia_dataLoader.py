@@ -4,12 +4,12 @@ import numpy as np
 
 
 def load_from_folder(
-    start, end, leftOrRight, imgFolder, maskFolder, img_size=(64, 64), grayscale=True
+    leftOrRight, imgFolder, maskFolder, img_size=(64, 64), grayscale=True
 ):
     images = []
     masks = []
-    image_name = []
-    for i in range(start, end + 1):
+    image_names = []
+    for i in range(1, 250 + 1):
         print(i)
         folder = f"{i:03d}"
         folder = os.path.join(imgFolder, folder, leftOrRight)
@@ -19,7 +19,7 @@ def load_from_folder(
             for img_name in sorted(os.listdir(folder)):
                 if img_name != "Thumbs.db":  # Exclude Thumbs.db
                     img_path = os.path.join(folder, img_name)
-                    image_name.append(os.path.splitext(img_name)[0])
+                    image_names.append(os.path.splitext(img_name)[0])
                     print(img_path)
                     img = load_img(
                         img_path,
@@ -45,12 +45,23 @@ def load_from_folder(
                     mask_array = img_to_array(mask)
                     mask_array = (mask_array > 0).astype(np.float32)
                     masks.append(mask_array)
-    return np.array(images), np.array(masks), image_name
+
+    images = np.array(images)
+    masks = np.array(masks)
+
+    train = images[0:901], masks[0:901], image_names[0:901]
+    test = images[901:1308], masks[901:1308], image_names[901:1308]
+    val = images[701:901], masks[701:901], image_names[701:901]
+
+    if leftOrRight == "L":
+        test = images[901:1332], masks[901:1332], image_names[901:1332]
+
+    return train, test, val
 
 
-baseFolder = "/content/drive/MyDrive/CASIA-Iris-Interval"
+imgFolder = "/content/drive/MyDrive/CASIA-Iris-Interval"
 maskFolder = "/content/drive/MyDrive/casia4i"
-leftOrRight = "R"
+leftOrRight = "L"
 
 # Define output folder for predictions
 if leftOrRight == "L":
@@ -58,6 +69,4 @@ if leftOrRight == "L":
 else:
     output_folder = "/content/drive/MyDrive/NASUnet-Iris/Iris-Outputs/Casia/R"  # Replace with your desired output folder path
 
-train = load_from_folder(1, 200, leftOrRight, baseFolder, maskFolder, (64, 64), True)
-test = load_from_folder(200, 250, leftOrRight, baseFolder, maskFolder, (64, 64), True)
-val = load_from_folder(150, 200, leftOrRight, baseFolder, maskFolder, (64, 64), True)
+train, test, val = load_from_folder(leftOrRight, imgFolder, maskFolder, (64, 64), True)

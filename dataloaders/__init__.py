@@ -1,4 +1,4 @@
-import dataloaders.iitd_dataloader as dataloader
+import dataloaders.casia_dataLoader as dataloader
 
 train = dataloader.train
 test = dataloader.test
